@@ -1,0 +1,12 @@
+/* list */
+.list {
+}
+.list-default {
+}
+.list-default li {
+  font-size: 14px;
+  color: #000000;
+}
+.list-default li.is-active {
+  color: #2003fc;
+}

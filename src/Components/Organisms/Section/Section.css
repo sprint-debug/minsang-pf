@@ -1,0 +1,54 @@
+/* section */
+.section {
+  /* padding: 0 20px; */
+}
+.section-inner {
+  padding: 80px 20px;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+.section-title {
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+/* section-about */
+.section-about {
+  border: 1px solid red;
+}
+
+/* section-experience */
+.section-experience {
+  border: 1px solid green;
+}
+
+.section-hero {
+}
+
+.section-hero {
+  height: 100vh;
+}
+.section-hero .section-title {
+  position: absolute;
+}
+.section-hero .canvas-container {
+  position: relative; /* 자식 요소의 절대 위치 지정을 위해 */
+  overflow: hidden; /* Three.js 캔버스가 섹션을 벗어나지 않도록 */
+  position: relative; /* 기본 콘텐츠를 위한 위치 지정 */
+  z-index: 2; /* 캔버스 위에 오도록 */
+  height: 100%;
+}
+
+.canvas-container canvas {
+  position: absolute; /* 캔버스를 배경처럼 */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1; /* 기본 콘텐츠 아래에 오도록 */
+  outline: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+}

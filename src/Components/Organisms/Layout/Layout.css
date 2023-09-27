@@ -1,0 +1,11 @@
+/* layout grid */
+.split-horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* grid-template-columns: 1fr; */
+}
+
+.split-horizontal > div {
+  flex-grow: 1;
+}
