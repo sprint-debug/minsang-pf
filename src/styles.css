@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Questrial&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +10,12 @@ ol,
 li {
   list-style: none;
 }
+html{
+  font-size:62.5%;
+}
+body{
+}
 .App {
-  font-family: sans-serif;
+  font-family: 'Questrial', 'Noto Sans KR', sans-serif;
+  line-height:1.37;
 }

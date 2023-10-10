@@ -1,7 +1,7 @@
 import "./Icon.css";
 
-const Icon = () => {
-  return <i className="icon icon-development"></i>;
+const Icon = ({ icon, alt }) => {
+  return <img src={icon} alt={alt || "icon"} />;
 };
 
 export default Icon;

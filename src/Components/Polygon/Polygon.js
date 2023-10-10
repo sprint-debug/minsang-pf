@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import * as THREE from "three";
 
-const Polygon = ({ backgroundColor = 0x000000, lineColor = 0xfefefe }) => {
+const Polygon = ({ backgroundColor = 0x000000, lineColor = 0x79809e }) => {
   const heroSectionRef = useRef(null);
 
   useEffect(() => {
@@ -27,12 +27,12 @@ const Polygon = ({ backgroundColor = 0x000000, lineColor = 0xfefefe }) => {
 
     const faceMaterial = new THREE.MeshBasicMaterial({
       color: 0xffffff,
-      side: THREE.DoubleSide
+      side: THREE.DoubleSide,
     });
 
     const wireframeMaterial = new THREE.MeshBasicMaterial({
       color: lineColor,
-      wireframe: true
+      wireframe: true,
     });
 
     const vwToPixels = (value) => window.innerWidth * (value / 100);
@@ -52,15 +52,15 @@ const Polygon = ({ backgroundColor = 0x000000, lineColor = 0xfefefe }) => {
           percentToPixelsWidth(10), // left 10%
           -percentToPixelsHeight(10), // bottom 10%
           ,
-          0
+          0,
         ],
-        rotation: { x: Math.PI / 4, y: 0, z: 0 }
+        rotation: { x: Math.PI / 4, y: 0, z: 0 },
       },
       {
         geometry: new THREE.ConeGeometry(vwToPixels(3.5), vwToPixels(5), 4),
         position: [percentToPixelsWidth(10), percentToPixelsWidth(-3), 0],
-        rotation: { x: Math.PI / 4, y: 0, z: 0 }
-      }
+        rotation: { x: Math.PI / 4, y: 0, z: 0 },
+      },
     ];
 
     pyramids.forEach((pyramidConfig) => {
@@ -81,7 +81,7 @@ const Polygon = ({ backgroundColor = 0x000000, lineColor = 0xfefefe }) => {
       scene.add(pyramidWireframe);
     });
 
-    const dodecahedronGeometry = new THREE.DodecahedronGeometry(45);
+    const dodecahedronGeometry = new THREE.DodecahedronGeometry(30);
 
     const dodecahedronFace = new THREE.Mesh(dodecahedronGeometry, faceMaterial);
     dodecahedronFace.position.set(0, 0, 0);
@@ -91,7 +91,8 @@ const Polygon = ({ backgroundColor = 0x000000, lineColor = 0xfefefe }) => {
       dodecahedronGeometry,
       wireframeMaterial
     );
-    dodecahedronWireframe.position.set(0, 0, 0.01); // z 위치를 약간 앞으로 이동
+    // dodecahedronWireframe.position.set(0, 0, 0.01); // z 위치를 약간 앞으로 이동
+    dodecahedronWireframe.position.set(0, 0, 10); // z 위치를 약간 앞으로 이동
     scene.add(dodecahedronWireframe);
     camera.position.z = 100;
 
@@ -101,6 +102,12 @@ const Polygon = ({ backgroundColor = 0x000000, lineColor = 0xfefefe }) => {
       dodecahedronFace.rotation.y += 0.0025;
       dodecahedronWireframe.rotation.z += 0.001;
       dodecahedronWireframe.rotation.y += 0.0025;
+
+      // dodecahedronFace.rotation.z += 0.1;
+      // dodecahedronFace.rotation.y += 0.25;
+      // dodecahedronWireframe.rotation.z += 0.1;
+      // dodecahedronWireframe.rotation.y += 0.25;
+
       renderer.render(scene, camera);
     };
 
